@@ -1,4 +1,4 @@
-var path = require('path');
+﻿var path = require('path');
 
 // PostgreSQL DATABASE_URL = postgres://user:passwd@host:port/database
 // SQLite     DATABASE_URL = sqlite://:@:/
@@ -17,7 +17,7 @@ var Sequelize = require('sequelize');
 
 // Usar base de datos SQLite o PostgreSQL
 var sequelize = new Sequelize(DB_name, user, pwd,
-  { dialect:  protocol,
+  { dialect:  dialect,
     protocol: protocol,
     port:     port,
     host:     host,
