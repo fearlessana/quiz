@@ -1,4 +1,4 @@
-﻿var path = require('path');
+var path = require('path');
 
 // PostgreSQL DATABASE_URL = postgres://user:passwd@host:port/database
 // SQLite     DATABASE_URL = sqlite://:@:/
