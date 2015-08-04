@@ -13,3 +13,14 @@ input, button{
 footer{
 	font-size: large;
 }
+#h1, #s1, #n1{
+	-webkit-flex-flow: column wrap;
+    flex-flow: column wrap;
+    -webkit-justify-content: center;
+    justify-content: center;   
+    
+}
+#s1, #n1{
+	min-height: 50px;
+    max-height: 800px;
+}

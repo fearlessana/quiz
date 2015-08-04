@@ -26,10 +26,19 @@ var sequelize = new Sequelize(DB_name, user, pwd,
   }
 );
 
-// Importar definición de tabla Quiz en quiz.js
-var Quiz = sequelize.import(path.join(__dirname,'quiz'));
+// Importar definicion de la tabla Quiz
+var quiz_path = path.join(__dirname,'quiz');
+var Quiz = sequelize.import(quiz_path);
 
-exports.Quiz = Quiz; // exportar definición de tabla Quiz
+// Importar definicion de la tabla Comment
+var comment_path = path.join(__dirname,'comment');
+var Comment = sequelize.import(comment_path);
+
+Comment.belongsTo(Quiz);
+Quiz.hasMany(Comment);
+
+exports.Quiz = Quiz; // exportar tabla Quiz
+exports.Comment = Comment; // exportar tabla Comment
 
 
 // sequelize.sync() inicializa tabla de preguntas en DB
@@ -37,10 +46,12 @@ sequelize.sync().then(function() {
   // then(..) ejecuta el manejador una vez creada la tabla
   Quiz.count().then(function (count){
     if(count === 0) {   // la tabla se inicializa solo si está vacía
-      Quiz.create({ pregunta: '¿Capital de Italia?', respuesta: 'Roma', tema: 'Humanidades'});
-      Quiz.create({ pregunta: '¿Capital de Francia?', respuesta: 'París', tema: 'Humanidades'});
-      Quiz.create({ pregunta: '¿Los móviles se comen la cobertura unos a otros?', respuesta: 'Si', tema: 'Tecnología'});
-      Quiz.create({ pregunta: '¿Los electrones son más pequeños que los protones?', respuesta: "Si", tema: 'Ciencias'}).then(function(){console.log('Base de datos inicializada')});      
+      Quiz.bulkCreate( 
+        [ {pregunta: '¿Capital de Italia?', respuesta: 'Roma', tema: 'Humanidades'}, 
+          {pregunta: '¿Capital de Francia?', respuesta: 'París', tema: 'Humanidades'},
+          {pregunta: '¿Los móviles se comen la cobertura unos a otros?', respuesta: 'Si', tema: 'Tecnología'},
+          {pregunta: '¿Los electrones son más pequeños que los protones?', respuesta: "Si", tema: 'Ciencias'}
+        ]).then(function(){console.log('Base de datos inicializada')});            
     };
   });
 });

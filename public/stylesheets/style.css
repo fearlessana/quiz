@@ -1,22 +1,31 @@
+html{
+	background: #5882FA;
+}
 body {
 	margin: 0;
   	padding: 0;
-  	font: 16px Georgia, serif;
+  	font: 16px Georgia, serif;  	
 }
 #page-wrap{
-	margin: 3% auto; color: white;
+	margin: 3% auto; 
+	color: white;
+	
+	
 }
 #page-wrap > .main{
 	border: 1px solid #999; 
-	padding: 1%;
-	margin-bottom: 12px;
+	padding: 1.15%;
+	margin-bottom: 20px;
 	color: black;
+	
 }
 section > div{
 	padding: 5px 0 40px!important;
 	
 }
 header, nav, section {
+	display: -webkit-flex;
+    display: flex;
 	background: #eee;
 	text-align: center;
 }
@@ -33,4 +42,42 @@ nav span{
 }
 #errorMsgs{
 	color: #f61; font-size: smaller;
+}
+#h1, #s1, #n1{
+	-webkit-flex-flow: column wrap;
+    flex-flow: column wrap;
+    
+    
+}
+#s1, #n1{
+	min-height: 325px;	
+}
+#page-wrap > .main > #n1{
+	padding-top: 2%;
+}
+.btn{
+	margin: 2% 0!important;
+}
+td, td a{
+	text-align: left;
+	padding:0 2% 0 0;
+}
+input[type="button"], input[type="submit"], button, a:hover{
+	cursor: pointer;	
+}
+input[type="button"], input[type="submit"], button{
+	font-weight: bold;
+}
+section, section div{	
+	overflow-y:scroll;
+	height: 325px!important;
+
+}
+a{
+	text-decoration: none;
+}
+#n1 > *{
+	text-align: center;
+	margin: 5% 0!important;
+	font-weight: bold;
 }
