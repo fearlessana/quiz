@@ -4,23 +4,21 @@ html{
 body {
 	margin: 0;
   	padding: 0;
-  	font: 16px Georgia, serif;  	
+  	font: 18px Georgia, serif;  	
 }
 #page-wrap{
-	margin: 3% auto; 
-	color: white;
-	
-	
+	margin: 2% auto; 
+	color: white;	
 }
 #page-wrap > .main{
 	border: 1px solid #999; 
-	padding: 1.15%;
+	padding: 1%;
 	margin-bottom: 20px;
 	color: black;
 	
 }
 section > div{
-	padding: 5px 0 40px!important;
+	padding: 5px 0 30px!important;
 	
 }
 header, nav, section {
@@ -29,8 +27,10 @@ header, nav, section {
 	background: #eee;
 	text-align: center;
 }
-section > img{
-	margin:0 0 10% !important;
+p img#img{
+	padding-top: 1%;
+	width: 10%!important;
+	height: 10%!important;
 }
 footer{
 	margin-top: 15%;
@@ -41,16 +41,22 @@ nav span{
 	margin: 0px 10px 0px 0px;
 }
 #errorMsgs{
-	color: #f61; font-size: smaller;
+	color: #EF0A03; font-size: medium;
+	font-weight: bold;
 }
-#h1, #s1, #n1{
+header{
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	align-items: center;
+	
+}
+#s1, #n1, #errorMsgs{
 	-webkit-flex-flow: column wrap;
-    flex-flow: column wrap;
-    
-    
+    flex-flow: column wrap;    
 }
 #s1, #n1{
-	min-height: 325px;	
+	min-height: 320px;	
 }
 #page-wrap > .main > #n1{
 	padding-top: 2%;
@@ -70,7 +76,7 @@ input[type="button"], input[type="submit"], button{
 }
 section, section div{	
 	overflow-y:scroll;
-	height: 325px!important;
+	height: 300px!important;
 
 }
 a{
@@ -80,4 +86,11 @@ a{
 	text-align: center;
 	margin: 5% 0!important;
 	font-weight: bold;
+}
+.right{
+	padding-left: 5%;
+}
+article{
+	text-align: center;
+	padding-bottom: 2%;	
 }

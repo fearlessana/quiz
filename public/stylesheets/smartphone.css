@@ -5,14 +5,12 @@ h2 span, section h3, label.rem {
 	display: none;
 }
 body{
-	font-size: xx-large;
-}
-input, button{
 	font-size: x-large;
 }
-footer{
-	font-size: large;
+input, button, footer, section{
+	font-size: medium;
 }
+
 #h1, #s1, #n1{
 	-webkit-flex-flow: column wrap;
     flex-flow: column wrap;
@@ -21,6 +19,12 @@ footer{
     
 }
 #s1, #n1{
-	min-height: 50px;
-    max-height: 800px;
+	min-height: 25px;
+    max-height: 600px;
+}
+.img{
+	padding-top: 3%;
+	width: 75%!important;
+	height: 75%!important;
+
 }
