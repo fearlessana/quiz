@@ -27,14 +27,18 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 //añadir semilla 'Quiz 2015' para que codifique de forma más aleatoria (cifrar) la cookie
 app.use(cookieParser('Quiz 2015')); 
-app.use(session());
+app.use(session());//  {cookie: {maxAge: 3600000}}  tiempo de expiración de la sesión
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Helpers dinamicos:
 app.use(function(req, res, next) {
 
+  // si no existe lo inicializa
+  if (!req.session.redir) {
+    req.session.redir = '/';
+  }
   // guardar path en session.redir para despues de login
-  if (!req.path.match(/\/login|\/logout/)) {
+  if (!req.path.match(/\/login|\/logout|\/user/)) {
     req.session.redir = req.path;
   }
 
@@ -43,8 +47,21 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use(function(req, res, next) {
+  var now = Date.now();
+  
+  if (req.session.lastRequest && req.session.user && ((now - req.session.lastRequest) / 1000 > 120)) {  
+    req.session.lastRequest = now;
+    req.session.errors = [{"message": 'Sesión caducada, por favor vuelva a loguearse.'}];
+    delete req.session.user;
+    res.redirect('/login');
+  } else {
+    req.session.lastRequest = now;
+    next();
+  }
+});
+
 app.use('/', routes);
-//app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
