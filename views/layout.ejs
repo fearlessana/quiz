@@ -15,14 +15,14 @@
   <% if(!session.user){ %>
       <span class="right"><a href="/login">Login</a></span>
     <% } else { %>
-      <span class="right"> <%=session.user.username%> <a href="/logout">Logout</a>
+      <span class="right name">Hola ¡<%=session.user.username%>!<a href="/logout"> Logout</a>
       </span>
   <% } %>
     
   </header>
   <article><% if (errors.length) { %>
     <span id="errorMsgs">
-      Corrige los errores:<br/>
+      Errores:<br/>
       <% for (var i in errors) { %>
         <span> <%= errors[i].message %> </span><br/>
       <% } %>
@@ -42,8 +42,8 @@
   </section>
 
   <footer class="main" id="f1">
-    <a href="http://es.wikipedia.org/wiki/Quiz" target="_blank">¿Que es un Quiz?</a><br/>
-    <a href="https://github.com/fearlessana/quiz" target="_blank">Proyecto en GitHub</a><br/>
+    <a href="javascript:window.history.back();">&laquo; Volver atrás</a><br/><br/>
+    <a href="https://github.com/fearlessana/quiz" target="_blank">Proyecto en GitHub</a>
     <a href="https://quizfearlessana.herokuapp.com" target="_blank">Proyecto en Heroku</a><br/>
   </footer>
 </div>
