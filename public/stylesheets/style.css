@@ -64,7 +64,7 @@ header{
 .btn{
 	margin: 2% 0!important;
 }
-td, td a{
+td, td a, p.left{
 	text-align: left;
 	padding:0 2% 0 0;
 }
@@ -97,4 +97,12 @@ article{
 .name{
 	color: #D500D5;
 	font-weight: bold;
+}
+p.left > span{
+	font-weight: bold;
+	color: #EA0075;
+}
+p.left::before{
+	content: '\274F';
+	padding-right: 5px;
 }
